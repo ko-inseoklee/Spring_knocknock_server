@@ -3,6 +3,7 @@ package com.knkn.knockknock.userRepositoryTest;
 import com.knkn.knockknock.domain.User;
 import com.knkn.knockknock.repository.UserRepository;
 import com.knkn.knockknock.service.UserService;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,17 +21,21 @@ public class userRepositoryTest {
     @Test
     public void join(){
         User user = new User();
-        user.setId("tjrkd222");
+        user.setId("someng22");
         user.setPassword("1234");
-        user.setAge("10대");
-        user.setJobs("학생");
-        user.setNickname("inseoking");
+        user.setAge("20대");
+        user.setJobs("개발자");
+        user.setNickname("someng");
         user.setPhoneVerified(false);
-        user.setSex("남");
+        user.setSex("여");
 
         userService.signUp(user);
+    }
 
-//        Optional<User> result = userService.findById("tjrkd222");
-//        System.out.println(result.get().getNickname());
+    @Test
+    public void ID중복확인(){
+        String id = "tjrkd222";
+        boolean result = userService.checkDuplicateID(id);
+        Assertions.assertThat(result).isEqualTo(true);
     }
 }
