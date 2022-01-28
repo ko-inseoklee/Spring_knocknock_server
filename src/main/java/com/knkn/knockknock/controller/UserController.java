@@ -33,7 +33,7 @@ public class UserController {
         return true;
     }
 
-    @GetMapping("users/true")
+    @GetMapping("users/false")
     @ResponseBody
     public boolean createFail(){
         return false;

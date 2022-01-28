@@ -1,21 +1,20 @@
 package com.knkn.knockknock.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "matching")
 public class Matching {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
     private String ownerID;
+    private String joinerID;
     private String category;
     private String requirements_sex;
-    private Date creationTime;
+    private Long creationTime;
 
     public Long getId() {
         return id;
@@ -49,11 +48,19 @@ public class Matching {
         this.requirements_sex = requirements_sex;
     }
 
-    public Date getCreationTime() {
+    public Long getCreationTime() {
         return creationTime;
     }
 
-    public void setCreationTime(Date creationTime) {
+    public void setCreationTime(Long creationTime) {
         this.creationTime = creationTime;
+    }
+
+    public String getJoinerID() {
+        return joinerID;
+    }
+
+    public void setJoinerID(String joinerID) {
+        this.joinerID = joinerID;
     }
 }
