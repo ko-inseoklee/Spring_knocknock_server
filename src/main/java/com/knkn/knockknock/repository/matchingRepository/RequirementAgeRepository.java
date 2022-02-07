@@ -1,4 +1,4 @@
-package com.knkn.knockknock.repository;
+package com.knkn.knockknock.repository.matchingRepository;
 
 import com.knkn.knockknock.domain.matching.RequirementAge;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -2,8 +2,8 @@ package com.knkn.knockknock.service;
 
 import com.knkn.knockknock.domain.matching.Matching;
 import com.knkn.knockknock.domain.matching.RequirementAge;
-import com.knkn.knockknock.repository.MatchingRepository;
-import com.knkn.knockknock.repository.RequirementAgeRepository;
+import com.knkn.knockknock.repository.matchingRepository.MatchingRepository;
+import com.knkn.knockknock.repository.matchingRepository.RequirementAgeRepository;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;

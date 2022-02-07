@@ -1,7 +1,7 @@
 package com.knkn.knockknock;
 
-import com.knkn.knockknock.repository.MatchingRepository;
-import com.knkn.knockknock.repository.RequirementAgeRepository;
+import com.knkn.knockknock.repository.matchingRepository.MatchingRepository;
+import com.knkn.knockknock.repository.matchingRepository.RequirementAgeRepository;
 import com.knkn.knockknock.repository.UserRepository;
 import com.knkn.knockknock.service.MatchingService;
 import com.knkn.knockknock.service.UserService;
