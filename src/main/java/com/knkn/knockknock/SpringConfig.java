@@ -1,6 +1,7 @@
 package com.knkn.knockknock;
 
 import com.knkn.knockknock.repository.MatchingRepository;
+import com.knkn.knockknock.repository.RequirementAgeRepository;
 import com.knkn.knockknock.repository.UserRepository;
 import com.knkn.knockknock.service.MatchingService;
 import com.knkn.knockknock.service.UserService;
@@ -11,10 +12,12 @@ import org.springframework.context.annotation.Configuration;
 public class SpringConfig {
     private final UserRepository userRepository;
     private final MatchingRepository matchingRepository;
+    private RequirementAgeRepository requirementAgeRepository;
 
-    public SpringConfig(UserRepository userRepository, MatchingRepository matchingRepository) {
+    public SpringConfig(UserRepository userRepository, MatchingRepository matchingRepository,RequirementAgeRepository requirementAgeRepository) {
         this.userRepository = userRepository;
         this.matchingRepository = matchingRepository;
+        this.requirementAgeRepository = requirementAgeRepository;
     }
 
     @Bean
@@ -24,6 +27,6 @@ public class SpringConfig {
 
     @Bean
     public MatchingService matchingService(){
-        return new MatchingService(matchingRepository);
+        return new MatchingService(matchingRepository, requirementAgeRepository);
     }
 }
