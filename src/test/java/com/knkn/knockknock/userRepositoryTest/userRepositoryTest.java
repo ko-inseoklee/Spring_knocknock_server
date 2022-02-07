@@ -26,7 +26,6 @@ public class userRepositoryTest {
         user.setAge("20대");
         user.setJobs("개발자");
         user.setNickname("someng");
-        user.setPhoneVerified(false);
         user.setSex("여");
 
         userService.signUp(user);

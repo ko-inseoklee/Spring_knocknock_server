@@ -1,24 +1,29 @@
 package com.knkn.knockknock.domain.matching;
 
-import com.knkn.knockknock.domain.matching.Message;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.List;
+import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "Chat")
-public class Chat {
+@Table(name = "Message")
+public
+class Chat {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
-
-    private String matchingID;
-    private List<Message> messages;
+    private Long roomID;
+    private String writer;
+    private String text;
+    private LocalDate sendingTime;
 
     public Chat() {
+    }
+
+    public Chat(Long roomID, String writer, String text) {
+        this.roomID = roomID;
+        this.writer = writer;
+        this.text = text;
+        this.sendingTime = LocalDate.now();
     }
 
     public Long getId() {
@@ -27,10 +32,5 @@ public class Chat {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Chat(String matchingID, List<Message> messages) {
-        this.matchingID = matchingID;
-        this.messages = messages;
     }
 }

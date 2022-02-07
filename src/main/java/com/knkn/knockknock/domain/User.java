@@ -3,8 +3,10 @@ package com.knkn.knockknock.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "User")
 public class User {
     @Id
     @Column(name = "id", nullable = false)
@@ -13,9 +15,19 @@ public class User {
     private String age;
     private String nickname;
     private String sex;
-    private boolean phoneVerified;
-    private String jobs;
+    private String job;
 
+    public User() {
+    }
+
+    public User(String id, String pw, String age, String nickname, String sex, String job){
+        this.id = id;
+        this.password = pw;
+        this.age = age;
+        this.nickname = nickname;
+        this.sex = sex;
+        this.job = job;
+    }
 
 
     public String getId() {
@@ -58,19 +70,11 @@ public class User {
         this.sex = sex;
     }
 
-    public boolean isPhoneVerified() {
-        return phoneVerified;
-    }
-
-    public void setPhoneVerified(boolean phoneVerified) {
-        this.phoneVerified = phoneVerified;
-    }
-
     public String getJobs() {
-        return jobs;
+        return job;
     }
 
     public void setJobs(String jobs) {
-        this.jobs = jobs;
+        this.job = jobs;
     }
 }
