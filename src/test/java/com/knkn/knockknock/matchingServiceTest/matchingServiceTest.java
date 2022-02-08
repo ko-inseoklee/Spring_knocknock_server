@@ -5,7 +5,6 @@ import com.knkn.knockknock.domain.matching.Matching;
 import com.knkn.knockknock.service.MatchingService;
 import com.knkn.knockknock.service.UserService;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
