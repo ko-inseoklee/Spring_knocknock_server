@@ -1,4 +1,4 @@
-package com.knkn.knockknock.domain;
+package com.knkn.knockknock.domain.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

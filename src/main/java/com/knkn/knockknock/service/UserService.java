@@ -1,13 +1,15 @@
 package com.knkn.knockknock.service;
 
-import com.knkn.knockknock.domain.User;
-import com.knkn.knockknock.repository.UserRepository;
+import com.knkn.knockknock.domain.user.User;
+import com.knkn.knockknock.repository.userRepository.UserRepository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Transactional
+@Service
 public class UserService {
     private final UserRepository userRepository;
 

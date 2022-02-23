@@ -1,19 +1,20 @@
 package com.knkn.knockknock.service;
 
-import com.knkn.knockknock.domain.User;
+import com.knkn.knockknock.domain.user.User;
 import com.knkn.knockknock.domain.matching.Matching;
 import com.knkn.knockknock.domain.matching.RequirementAge;
 import com.knkn.knockknock.domain.matching.*;
 import com.knkn.knockknock.repository.matchingRepository.MatchingRepository;
 import com.knkn.knockknock.repository.matchingRepository.ChatRepository;
 import com.knkn.knockknock.repository.matchingRepository.RequirementAgeRepository;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Optional;
 
 @Transactional
+@Service
 public class MatchingService {
     private final MatchingRepository matchingRepository;
     private final RequirementAgeRepository requirementAgeRepository;

@@ -1,6 +1,6 @@
-package com.knkn.knockknock.repository;
+package com.knkn.knockknock.repository.userRepository;
 
-import com.knkn.knockknock.domain.User;
+import com.knkn.knockknock.domain.user.User;
 import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.lang.NonNull;

@@ -1,52 +1,51 @@
 package com.knkn.knockknock.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "post")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long postID;
-    private String uID;
+    @Column(name = "id", nullable = false)
+    private Long id;
+    private String userID;
     private String title;
     private String category;
     private String contents;
     private Date creationTime;
     private String age;
-    private int like;
+    private int likeCnt;
 
     public Post() {
     }
 
-    public Post(long postID, String uID, String title, String category, String contents, Date creationTime, String age, int like) {
-        this.postID = postID;
-        this.uID = uID;
+    public Post(String uID, String title, String category, String contents, Date creationTime, String age, int like) {
+//        this.postID = postID;
+        this.userID = uID;
         this.title = title;
         this.category = category;
         this.contents = contents;
         this.creationTime = creationTime;
         this.age = age;
-        this.like = like;
+        this.likeCnt = like;
     }
 
-    public long getPostID() {
-        return postID;
+    public Long getId() {
+        return this.id;
     }
 
-    public void setPostID(long postID) {
-        this.postID = postID;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public String getuID() {
-        return uID;
+    public String getUserID() {
+        return userID;
     }
 
-    public void setuID(String uID) {
-        this.uID = uID;
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getTitle() {
@@ -90,10 +89,10 @@ public class Post {
     }
 
     public int getLike() {
-        return like;
+        return likeCnt;
     }
 
     public void setLike(int like) {
-        this.like = like;
+        this.likeCnt = like;
     }
 }

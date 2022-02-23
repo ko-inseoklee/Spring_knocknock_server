@@ -1,13 +1,28 @@
 package com.knkn.knockknock.domain;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
 public class Comments {
     private long CommentID;
-    private int postID;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private Long postID;
     private String userID;
+    private int likeCnt;
     private Date creationTime;
     private String contents;
+
+    public Comments() {
+    }
+
+    public Comments(String contents){
+        this.contents = contents;
+        this.creationTime = new Date();
+        likeCnt = 0;
+    }
 
     public String getContents() {
         return contents;
@@ -33,11 +48,11 @@ public class Comments {
         this.userID = userID;
     }
 
-    public int getPostID() {
+    public Long getPostID() {
         return postID;
     }
 
-    public void setPostID(int postID) {
+    public void setPostID(Long postID) {
         this.postID = postID;
     }
 
@@ -47,5 +62,13 @@ public class Comments {
 
     public void setCommentID(long commentID) {
         CommentID = commentID;
+    }
+
+    public int getLikeCnt() {
+        return likeCnt;
+    }
+
+    public void setLikeCnt(int likeCnt) {
+        this.likeCnt = likeCnt;
     }
 }

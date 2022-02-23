@@ -1,15 +1,11 @@
 package com.knkn.knockknock.userRepositoryTest;
 
-import com.knkn.knockknock.domain.User;
-import com.knkn.knockknock.repository.UserRepository;
+import com.knkn.knockknock.domain.user.User;
 import com.knkn.knockknock.service.UserService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import org.springframework.transaction.annotation.Transactional;
-import java.util.Optional;
 
 @SpringBootTest
 //@Transactional

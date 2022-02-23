@@ -1,6 +1,6 @@
 package com.knkn.knockknock.matchingServiceTest;
 
-import com.knkn.knockknock.domain.User;
+import com.knkn.knockknock.domain.user.User;
 import com.knkn.knockknock.domain.matching.Matching;
 import com.knkn.knockknock.service.MatchingService;
 import com.knkn.knockknock.service.UserService;
