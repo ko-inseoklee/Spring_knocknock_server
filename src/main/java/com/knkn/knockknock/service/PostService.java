@@ -90,7 +90,7 @@ public class PostService {
     }
 
     public int commentThumbUp(Long cId, String uId){
-        Comments c = commentsRepository.findByCommentIDEquals(cId);
+        Comments c = commentsRepository.findByCommentIDEquals(cId).get();
         Optional<UserThumbUp> isThumbUp = userThumbUpRepository.findByUIdEqualsAndCIdEquals(uId, cId);
         if(isThumbUp.isPresent()) {
             c.setLikeCnt(c.getLikeCnt() - 1);

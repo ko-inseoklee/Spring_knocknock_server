@@ -5,7 +5,7 @@ import java.util.Date;
 
 @Entity
 public class Comments {
-    private long CommentID;
+    private Long CommentID;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -56,11 +56,11 @@ public class Comments {
         this.postID = postID;
     }
 
-    public long getCommentID() {
+    public Long getCommentID() {
         return CommentID;
     }
 
-    public void setCommentID(long commentID) {
+    public void setCommentID(Long commentID) {
         CommentID = commentID;
     }
 
