@@ -24,5 +24,4 @@ public class PostController {
     public TopicOfDay getTodayTopic(@PathVariable Long today){
         return postService.getDailyTopic(today);
     }
-
 }
