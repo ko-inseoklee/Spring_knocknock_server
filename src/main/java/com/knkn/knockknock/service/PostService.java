@@ -2,6 +2,7 @@ package com.knkn.knockknock.service;
 
 import com.knkn.knockknock.domain.Comments;
 import com.knkn.knockknock.domain.Post;
+import com.knkn.knockknock.domain.TopicOfDay;
 import com.knkn.knockknock.domain.user.UserThumbUp;
 import com.knkn.knockknock.repository.postRepository.CommentsRepository;
 import com.knkn.knockknock.repository.postRepository.PostRepository;
@@ -112,5 +113,8 @@ public class PostService {
         return c.getLikeCnt();
     }
 
+    public TopicOfDay getDailyTopic(Long id){
+        return topicOfDayRepository.findByTodayEquals(id);
+    }
 
 }
