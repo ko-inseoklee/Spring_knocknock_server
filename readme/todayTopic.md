@@ -1,9 +1,9 @@
 
 ## 오늘의 주제
-##GET </br>
-###URL
-IP_address/topic-of-today/<u>날짜</u> </br>
-###Parameter
+## GET </br>
+### URL
+IP_address/topic-of-today/<U>날짜</U> </br>
+### Parameter
 
 
 
@@ -12,7 +12,7 @@ IP_address/topic-of-today/<u>날짜</u> </br>
 | date           | Long | X     |  
 
 
-###Result
+### Result
 |parameter| type   |
 |---------|--------|
 |date| Long   |
@@ -21,5 +21,5 @@ IP_address/topic-of-today/<u>날짜</u> </br>
 |like| int|
 
 
-###example
+### example
 127.0.0.1/topic-of-today/20220306  </br>
