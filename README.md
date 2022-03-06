@@ -1,11 +1,3 @@
-# 매칭
-### 매칭 TDD 시나리오
-    방 생성 -> 상대방 입장 -> 메세지 송수신 -> 방 나가기(상대방) or 방 삭제(소유자)
-### TODO
+# API Reference
 
-# 게시판
-### 게시판 TDD 시나리오
-    게시판 생성 -> 게시판 정렬 및 검색 -> 접속 -> 수정 -> 댓글 -> 공감 -> 삭제
-### TODO
-    대댓글 기능 고안
-    
+[오늘의주제]https://github.com/ko-inseoklee/knocknock_server/readme/todayTopic.md

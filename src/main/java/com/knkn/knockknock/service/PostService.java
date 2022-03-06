@@ -5,6 +5,7 @@ import com.knkn.knockknock.domain.Post;
 import com.knkn.knockknock.domain.user.UserThumbUp;
 import com.knkn.knockknock.repository.postRepository.CommentsRepository;
 import com.knkn.knockknock.repository.postRepository.PostRepository;
+import com.knkn.knockknock.repository.postRepository.TopicOfDayRepository;
 import com.knkn.knockknock.repository.userRepository.UserThumbUpRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,11 +19,13 @@ public class PostService {
     private final PostRepository postRepository;
     private final CommentsRepository commentsRepository;
     private final UserThumbUpRepository userThumbUpRepository;
+    private final TopicOfDayRepository topicOfDayRepository;
 
-    public PostService(PostRepository postRepository, CommentsRepository commentsRepository, UserThumbUpRepository userThumbUpRepository) {
+    public PostService(PostRepository postRepository, CommentsRepository commentsRepository, UserThumbUpRepository userThumbUpRepository, TopicOfDayRepository topicOfDayRepository) {
         this.postRepository = postRepository;
         this.commentsRepository = commentsRepository;
         this.userThumbUpRepository = userThumbUpRepository;
+        this.topicOfDayRepository = topicOfDayRepository;
     }
 
     public ArrayList<Post> loadPosts(){
@@ -90,7 +93,7 @@ public class PostService {
     }
 
     public int commentThumbUp(Long cId, String uId){
-        Comments c = commentsRepository.findByCommentIDEquals(cId).get();
+        Comments c = commentsRepository.findByidEquals(cId);
         Optional<UserThumbUp> isThumbUp = userThumbUpRepository.findByUIdEqualsAndCIdEquals(uId, cId);
         if(isThumbUp.isPresent()) {
             c.setLikeCnt(c.getLikeCnt() - 1);
