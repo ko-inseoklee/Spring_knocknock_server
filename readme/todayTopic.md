@@ -2,7 +2,7 @@
 ## 오늘의 주제
 ## GET </br>
 ### URL
-IP_address/topic-of-today/<u>날짜</u> </br>
+IP_address/topic-of-today/<U>날짜</U> </br>
 ### Parameter
 
 
