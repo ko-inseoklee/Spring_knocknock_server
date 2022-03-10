@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Transactional
@@ -115,6 +116,10 @@ public class PostService {
 
     public TopicOfDay getDailyTopic(Long id){
         return topicOfDayRepository.findByTodayEquals(id);
+    }
+
+    public List<TopicOfDay> getTopicsFromToday(Long id, Long day){
+        return topicOfDayRepository.findByTodayIsBetween(id - day +Long.valueOf(1),id);
     }
 
 }

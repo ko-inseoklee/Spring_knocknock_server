@@ -3,6 +3,7 @@ package com.knkn.knockknock.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.List;
 
 @Entity
 public class TopicOfDay {
@@ -12,6 +13,8 @@ public class TopicOfDay {
     private String contents;
     @Column(name = "likecnt")
     private int likeCnt;
+
+//    private List<TopicOfDay> topics;
 
     public TopicOfDay() {
     }
@@ -54,4 +57,12 @@ public class TopicOfDay {
     public void setLikeCnt(int likeCnt) {
         this.likeCnt = likeCnt;
     }
+
+//    public List<TopicOfDay> getTopics() {
+//        return topics;
+//    }
+//
+//    public void setTopics(List<TopicOfDay> topics) {
+//        this.topics = topics;
+//    }
 }
