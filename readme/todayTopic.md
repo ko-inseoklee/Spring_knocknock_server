@@ -2,7 +2,7 @@
 ## 오늘의 주제
 ## GET </br>
 ### URL
-IP_address/topic-of-today/<U>날짜</U> </br>
+IP_address:8080/today-topic/<U>날짜</U> </br>
 ### Parameter
 
 
@@ -22,4 +22,4 @@ IP_address/topic-of-today/<U>날짜</U> </br>
 
 
 ### example
-127.0.0.1/topic-of-today/20220306  </br>
+127.0.0.1:8080/today-topic/20220306  </br>
