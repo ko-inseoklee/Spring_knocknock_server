@@ -23,4 +23,35 @@ public class TopicOfDay {
         this.likeCnt = like;
     }
 
+    public Long getToday() {
+        return today;
+    }
+
+    public void setToday(Long today) {
+        this.today = today;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContents() {
+        return contents;
+    }
+
+    public void setContents(String contents) {
+        this.contents = contents;
+    }
+
+    public int getLikeCnt() {
+        return likeCnt;
+    }
+
+    public void setLikeCnt(int likeCnt) {
+        this.likeCnt = likeCnt;
+    }
 }

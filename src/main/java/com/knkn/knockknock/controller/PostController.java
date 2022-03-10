@@ -19,7 +19,7 @@ public class PostController {
         this.postService = postService;
     }
 
-    @GetMapping("topic-of-day/{today:[0-9]*}")
+    @GetMapping("today-topic/{today:[0-9]*}")
     @ResponseBody
     public TopicOfDay getTodayTopic(@PathVariable Long today){
         return postService.getDailyTopic(today);

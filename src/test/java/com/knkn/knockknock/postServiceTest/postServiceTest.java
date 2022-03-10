@@ -2,6 +2,7 @@ package com.knkn.knockknock.postServiceTest;
 
 import com.knkn.knockknock.domain.Comments;
 import com.knkn.knockknock.domain.Post;
+import com.knkn.knockknock.domain.TopicOfDay;
 import com.knkn.knockknock.domain.user.User;
 import com.knkn.knockknock.service.PostService;
 import org.assertj.core.api.Assertions;
@@ -20,6 +21,7 @@ public class postServiceTest {
     Post p1 = new Post("inseoking","고백하는 방법", "연애","어떻게 말하면 좋을까요?", new Date(),"20대", 24);
     Post p2 = new Post("someng2","자녀 결혼", "자식","결혼시켜야 하는데", new Date(),"60대", 70);
     Post p3 = new Post("seungeun3","이직 고민", "직장","이직을 고민하고 있는데, 어디가 좋을까요?", new Date(),"40대", 44);
+    TopicOfDay topicOfDay = new TopicOfDay();
 
 
 
@@ -119,7 +121,10 @@ public class postServiceTest {
     //TODO: 로직 생각해봐야함.
     @Test
     public void 대댓글(){
+//        TopicOfDay t = postService.getDailyTopic(220306L);
 
+//        System.out.println(t.);
     }
+
 
 }

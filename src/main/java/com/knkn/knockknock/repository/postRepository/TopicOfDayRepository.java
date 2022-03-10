@@ -9,5 +9,4 @@ import java.util.Optional;
 @Repository
 public interface TopicOfDayRepository extends JpaRepository<TopicOfDay, Long> {
     TopicOfDay findByTodayEquals(Long today);
-
 }
