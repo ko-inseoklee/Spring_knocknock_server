@@ -7,7 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class KnockknockApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(KnockknockApplication.class, args);
+		try{
+			SpringApplication.run(KnockknockApplication.class, args);
+			System.out.println("Server opened Successfully");
+		}catch(Exception e){
+			System.out.println(e);
+		}
 	}
 
 }
