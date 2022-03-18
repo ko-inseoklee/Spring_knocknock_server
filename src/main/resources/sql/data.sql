@@ -3,3 +3,6 @@ INSERT INTO TOPIC_OF_DAY (today, contents, likeCnt, title) VALUES('20220304', '�
 INSERT INTO TOPIC_OF_DAY (today, contents, likeCnt, title) VALUES('20220305', 'dummy content','0','dummy title');
 INSERT INTO TOPIC_OF_DAY (today, contents, likeCnt, title) VALUES('20220306', '당신이 잘했다고 생각하는 일 중 당장 떠오르는 일을 한 가지 적어주세요.','0','당신의 성공 경험은?');
 INSERT INTO TOPIC_OF_DAY (today, contents, likeCnt, title) VALUES('20220310', '오늘 가장 먹고 싶은 음식은 무엇인가요?', '0', '오늘의 음식!')
+INSERT INTO TOPIC_OF_DAY (today, contents, likeCnt, title) VALUES('20220316', 'dummy content','0','dummy title');
+INSERT INTO TOPIC_OF_DAY (today, contents, likeCnt, title) VALUES('20220317', '당신이 잘했다고 생각하는 일 중 당장 떠오르는 일을 한 가지 적어주세요.','0','당신의 성공 경험은?');
+INSERT INTO TOPIC_OF_DAY (today, contents, likeCnt, title) VALUES('20220318', '오늘 가장 먹고 싶은 음식은 무엇인가요?', '0', '오늘의 음식!')
