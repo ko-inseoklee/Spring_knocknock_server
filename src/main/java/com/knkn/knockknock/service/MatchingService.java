@@ -7,6 +7,7 @@ import com.knkn.knockknock.domain.matching.*;
 import com.knkn.knockknock.repository.matchingRepository.MatchingRepository;
 import com.knkn.knockknock.repository.matchingRepository.ChatRepository;
 import com.knkn.knockknock.repository.matchingRepository.RequirementAgeRepository;
+import com.knkn.knockknock.repository.userRepository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -19,15 +20,17 @@ public class MatchingService {
     private final MatchingRepository matchingRepository;
     private final RequirementAgeRepository requirementAgeRepository;
     private final ChatRepository chatRepository;
+    private final UserRepository userRepository;
 
-    public MatchingService(MatchingRepository matchingRepository, RequirementAgeRepository requirementAgeRepository, ChatRepository messageRepository) {
+    public MatchingService(MatchingRepository matchingRepository, RequirementAgeRepository requirementAgeRepository, ChatRepository messageRepository, UserRepository userRepository) {
         this.matchingRepository = matchingRepository;
         this.requirementAgeRepository = requirementAgeRepository;
         this.chatRepository = messageRepository;
+        this.userRepository = userRepository;
     }
 
-    public Optional<Matching> getMatching(Long roomID){
-        return matchingRepository.findById(roomID);
+    public Matching getMatching(Long roomID){
+        return matchingRepository.findById(roomID).get();
     }
 
     public boolean checkValidation(Matching matching) {
@@ -38,6 +41,7 @@ public class MatchingService {
                 && matching.getOwnerID() != "";
     }
 
+    //TODO: status Code 내보내기
     public boolean createMatchingRoom(Matching matching){
         try{
             if(checkValidation(matching)) {
@@ -62,14 +66,17 @@ public class MatchingService {
 
 
 
-    public boolean joinMatchingRoom(Long roomID, User user) {
+    public boolean joinMatchingRoom(Long roomID, String uid) {
         Optional<Matching> optional = matchingRepository.findById(roomID);
-        if (optional.isPresent()) {
+        Optional<User> userOptional = userRepository.findByIdEquals(uid);
+        if (optional.isPresent() && userOptional.isPresent()) {
             Matching matching = optional.get();
+            User user = userOptional.get();
 
             ArrayList<RequirementAge> requirementAges = requirementAgeRepository.findByMatchingIDEquals(roomID);
 
             boolean contain = false;
+
             for (RequirementAge requirementAge : requirementAges) {
                 if(requirementAge.getAge() == user.getAge()){
                     contain = true;
