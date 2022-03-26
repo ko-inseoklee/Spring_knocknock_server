@@ -11,7 +11,7 @@ public class KnockknockApplication {
 			SpringApplication.run(KnockknockApplication.class, args);
 			System.out.println("Server opened Successfully");
 		}catch(Exception e){
-			System.out.println(e);
+			System.out.println(e.getMessage());
 		}
 	}
 

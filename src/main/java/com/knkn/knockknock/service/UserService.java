@@ -23,7 +23,7 @@ public class UserService {
 
     public User currentUser(String id){
         Optional<User> result = userRepository.findByIdEquals(id);
-        return result.isPresent() ? result.get() : result.orElse(new User());
+        return result.isPresent() ? result.get() : result.orElse(null);
     }
 
     public boolean signUp(User user) {

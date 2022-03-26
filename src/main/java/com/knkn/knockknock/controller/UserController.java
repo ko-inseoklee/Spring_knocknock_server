@@ -1,14 +1,18 @@
 package com.knkn.knockknock.controller;
 
 import com.knkn.knockknock.domain.user.User;
+import com.knkn.knockknock.exceptionHandler.UserNotFoundException;
 import com.knkn.knockknock.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
@@ -19,41 +23,48 @@ public class UserController {
     }
 
     //PRG 패턴
-    @PostMapping("users/create")
+    @PostMapping("create")
     public String createUser(@RequestBody User user){
         boolean result = userService.signUp(user);
-        if(result) return "redirect:/users/true";
-        else return "redirect:/users/false";
+        if(result) return "redirect:/true";
+        else return "redirect:/false";
     }
 
-    @GetMapping("users/true")
+    @GetMapping("true")
     @ResponseBody
     public boolean createSuccess(){
         return true;
     }
 
-    @GetMapping("users/false")
+    @GetMapping("false")
     @ResponseBody
     public boolean createFail(){
         return false;
     }
 
-    @GetMapping("users")
     @ResponseBody
     public List<User> showAll(){
         return userService.findUsers();
     }
 
-    @GetMapping("users/verify-id")
+    @GetMapping("verify-id")
     @ResponseBody
     public boolean checkVerifyId(@RequestParam("id") String id){
         return userService.checkDuplicateID(id);
     }
 
-    @GetMapping("users/verify-nickname")
+    @GetMapping("verify-nickname")
     @ResponseBody
     public boolean checkVerifyNickname(@RequestParam("nickname") String nickname){
         return userService.checkDuplicateNickName(nickname);
+    }
+
+    @GetMapping("{id}")
+    @ResponseBody
+    public ResponseEntity<User> getUser(@PathVariable String id){
+        if(userService.currentUser(id) == null) throw new UserNotFoundException(String.format("%s not found",id));
+        User user = userService.currentUser(id);
+        return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
 }
