@@ -15,8 +15,8 @@ import java.util.Date;
 @ControllerAdvice
 public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(Exception.class)
-    public final ResponseEntity<Object> handleAllExceptions(Exception e, WebRequest request){
-        ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(),e.getMessage(),request.getDescription(false));
+    public final ResponseEntity<Object> handleAllExceptions(Exception e, String request){
+        ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(),e.getMessage(),request);
 
         return new ResponseEntity<>(exceptionResponse,HttpStatus.INTERNAL_SERVER_ERROR);
     }
