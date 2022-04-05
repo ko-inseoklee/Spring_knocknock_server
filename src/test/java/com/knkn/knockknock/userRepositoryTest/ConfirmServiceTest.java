@@ -14,6 +14,6 @@ public class ConfirmServiceTest {
 
     @Test
     public void 인증번호전송() throws CoolsmsException {
-        confirmService.sendMessage("01038843932");
+        confirmService.sendMessage("01068084045");
     }
 }

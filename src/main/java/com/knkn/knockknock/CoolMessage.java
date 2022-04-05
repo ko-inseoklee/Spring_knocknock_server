@@ -13,7 +13,7 @@ public class CoolMessage {
         params.put("to",phoneNumber);
         params.put("from","01027765098");
         params.put("type","SMS");
-        params.put("text","[HAY] 인증번호는 [" + code +"] 입니다.");
+        params.put("text","[KnockKnock] 인증번호는 ["+ code +"] 입니다.");
 
         coolSMS.send(params);
     }
