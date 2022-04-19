@@ -3,7 +3,7 @@ package com.knkn.knockknock;
 import java.sql.Timestamp;
 import java.util.Random;
 
-public class HayUtility {
+public class KnKnUtility {
     public static Timestamp getCurrentTime(){
         return new Timestamp(System.currentTimeMillis());
     }

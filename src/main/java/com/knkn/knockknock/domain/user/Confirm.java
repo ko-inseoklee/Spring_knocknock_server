@@ -21,6 +21,9 @@ public class Confirm {
     @CreationTimestamp
     private Timestamp creationTime;
 
+    public Confirm() {
+    }
+
     public Confirm(Timestamp creationTime, String validationNumber, String phoneNumber){
 
     }

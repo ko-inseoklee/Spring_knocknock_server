@@ -12,9 +12,11 @@ import java.util.Optional;
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final ConfirmService confirmService;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, ConfirmService confirmService) {
         this.userRepository = userRepository;
+        this.confirmService = confirmService;
     }
 
     public List<User> findUsers(){
