@@ -55,7 +55,6 @@ public class UserService {
         try{
             String code = KnKnUtility.generateIdentifyNumber();
             confirmService.sendMessage(phoneNumber, code);
-            Confirm confirm = new Confirm();
         } catch (Exception exception){
             exception.printStackTrace();
         }

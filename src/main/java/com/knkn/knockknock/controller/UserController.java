@@ -46,8 +46,9 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     public CustomResponseEntity<Boolean> validatePhone(@RequestParam String phoneNumber, @RequestParam String code){
         System.out.println("phone = " + phoneNumber +", code = " + code);
-        boolean result = userService.validatePhoneAuth(phoneNumber,code);
-        return result? new CustomResponseEntity<Boolean>(StatusCode.OK,ResponseMessage.CONFIRM_CREATE_SUCCESS,true) : new CustomResponseEntity<Boolean>(StatusCode.OK,ResponseMessage.CONFIRM_CREATE_SUCCESS,false);
+//        boolean result = userService.validatePhoneAuth(phoneNumber,code);
+//        return result? new CustomResponseEntity<Boolean>(StatusCode.OK,ResponseMessage.CONFIRM_CREATE_SUCCESS,true) : new CustomResponseEntity<Boolean>(StatusCode.OK,ResponseMessage.CONFIRM_CREATE_SUCCESS,false);
+        return new CustomResponseEntity<Boolean>(StatusCode.OK,ResponseMessage.CONFIRM_CREATE_SUCCESS,userService.validatePhoneAuth(phoneNumber,code));
     }
 
 

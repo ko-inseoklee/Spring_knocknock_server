@@ -36,7 +36,7 @@ public class ConfirmService {
                     newConfirm.setPhoneNumber(phoneNumber);
                     confirmRepository.save(newConfirm);
                 }
-                else confirmRepository.updateValidation(KnKnUtility.generateIdentifyNumber(), confirm.getRequestTime() + 1, KnKnUtility.getCurrentTime(), phoneNumber);
+                else confirmRepository.updateValidation(code, confirm.getRequestTime() + 1, KnKnUtility.getCurrentTime(), phoneNumber);
             } catch (Exception e){
                 System.out.println(e.getMessage());
             }
@@ -50,5 +50,9 @@ public class ConfirmService {
         Confirm confirm = confirmRepository.findByPhoneNumberEquals(phoneNumber);
 
         return confirm.getValidationNumber().equals(code);
+    }
+
+    public Confirm callConfirm(String phoneNumber){
+        return confirmRepository.findByPhoneNumberEquals(phoneNumber);
     }
 }
