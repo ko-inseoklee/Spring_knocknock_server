@@ -35,7 +35,7 @@ public class UserController {
         else return "redirect:/false";
     }
 
-    @PostMapping("phoneAuth")
+    @PostMapping("phone-auth")
     public void phoneAuthentication(@RequestBody String phoneNumber) throws CoolsmsException {
         userService.sendAuthMessage(phoneNumber);
     }

@@ -28,8 +28,11 @@ public class ConfirmService {
             try{
                 coolMessage.sendSMS(phoneNumber,code);
                 if(confirm == null) {
-                    confirm = new Confirm(KnKnUtility.getCurrentTime(), code, phoneNumber);
-                    confirmRepository.save(confirm);
+                    Confirm newConfirm = new Confirm();
+                    newConfirm.setCreationTime(KnKnUtility.getCurrentTime());
+                    newConfirm.setValidationNumber(code);
+                    newConfirm.setPhoneNumber(phoneNumber);
+                    confirmRepository.save(newConfirm);
                 }
                 else confirmRepository.updateValidation(KnKnUtility.generateIdentifyNumber(), confirm.getRequestTime() + 1, KnKnUtility.getCurrentTime(), phoneNumber);
             } catch (Exception e){
