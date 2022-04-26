@@ -2,9 +2,11 @@ package com.knkn.knockknock.controller;
 
 import com.knkn.knockknock.ResponseMessage;
 import com.knkn.knockknock.StatusCode;
+import com.knkn.knockknock.domain.user.Confirm;
 import com.knkn.knockknock.domain.user.User;
 import com.knkn.knockknock.exceptionHandler.UserNotFoundException;
 import com.knkn.knockknock.service.UserService;
+import net.nurigo.java_sdk.exceptions.CoolsmsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -32,6 +34,20 @@ public class UserController {
         if(result) return "redirect:/true";
         else return "redirect:/false";
     }
+
+    @PostMapping("phoneAuth")
+    public void phoneAuthentication(@RequestParam String phoneNumber) throws CoolsmsException {
+        userService.sendAuthMessage(phoneNumber);
+    }
+
+    @GetMapping("validate-phone")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    public CustomResponseEntity<Boolean> validatePhone(@RequestParam String phoneNumber, @RequestParam String code){
+        boolean result = userService.validatePhoneAuth(phoneNumber,code);
+        return result? new CustomResponseEntity<Boolean>(StatusCode.OK,ResponseMessage.CONFIRM_CREATE_SUCCESS,true) : new CustomResponseEntity<Boolean>(StatusCode.OK,ResponseMessage.CONFIRM_CREATE_SUCCESS,false);
+    }
+
 
     @GetMapping("true")
     @ResponseBody
@@ -77,4 +93,6 @@ public class UserController {
         CustomResponseEntity customResponseEntity = new CustomResponseEntity(StatusCode.OK, ResponseMessage.USER_FOUND,user);
         return customResponseEntity;
     }
+
+
 }

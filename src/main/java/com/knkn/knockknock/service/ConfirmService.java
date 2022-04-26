@@ -19,8 +19,7 @@ public class ConfirmService {
         this.confirmRepository = confirmRepository;
     }
 
-    public CustomResponseEntity<Confirm> sendMessage(String phoneNumber) throws CoolsmsException {
-        String code = KnKnUtility.generateIdentifyNumber();
+    public CustomResponseEntity<Confirm> sendMessage(String phoneNumber, String code) throws CoolsmsException {
         Confirm confirm = confirmRepository.findByPhoneNumberEquals(phoneNumber);
 
         //First Time
@@ -39,10 +38,12 @@ public class ConfirmService {
 
         } else return new CustomResponseEntity<>(400, ResponseMessage.MORE_THAN_TEN_TIMES_REQUEST,confirm);
 
-
-
-
-
         return new CustomResponseEntity<>(201, ResponseMessage.CONFIRM_CREATE_SUCCESS,confirm);
+    }
+
+    public boolean checkValidation(String phoneNumber, String code){
+        Confirm confirm = confirmRepository.findByPhoneNumberEquals(phoneNumber);
+
+        return confirm.getValidationNumber() == code;
     }
 }

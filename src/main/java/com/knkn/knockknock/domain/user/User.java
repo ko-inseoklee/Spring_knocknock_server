@@ -11,11 +11,13 @@ public class User {
     @Id
     @Column(name = "id", nullable = false)
     private String id;
+    private String name;
     private String password;
     private String age;
     private String nickname;
     private String sex;
     private String job;
+    //가입 날짜 추가
 
     public User() {
     }
@@ -76,5 +78,13 @@ public class User {
 
     public void setJobs(String jobs) {
         this.job = jobs;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
