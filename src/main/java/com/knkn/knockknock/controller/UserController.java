@@ -36,8 +36,9 @@ public class UserController {
     }
 
     @PostMapping("phone-auth")
-    public void phoneAuthentication(@RequestBody String phoneNumber) throws CoolsmsException {
-        userService.sendAuthMessage(phoneNumber);
+    public void phoneAuthentication(@RequestBody Confirm confirm) throws CoolsmsException {
+        System.out.println(confirm);
+        userService.sendAuthMessage(confirm.getPhoneNumber());
     }
 
     @GetMapping("validate-phone")
