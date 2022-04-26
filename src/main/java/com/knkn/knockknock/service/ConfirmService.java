@@ -9,6 +9,8 @@ import com.knkn.knockknock.repository.userRepository.ConfirmRepository;
 import net.nurigo.java_sdk.exceptions.CoolsmsException;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Service
 public class ConfirmService {
 
@@ -47,6 +49,6 @@ public class ConfirmService {
     public boolean checkValidation(String phoneNumber, String code){
         Confirm confirm = confirmRepository.findByPhoneNumberEquals(phoneNumber);
 
-        return confirm.getValidationNumber() == code;
+        return confirm.getValidationNumber().equals(code);
     }
 }
