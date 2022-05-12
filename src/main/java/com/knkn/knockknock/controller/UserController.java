@@ -29,16 +29,17 @@ public class UserController {
 
     //PRG 패턴
     @PostMapping("create")
-    public String createUser(@RequestBody User user){
+    public ResponseEntity<String> createUser(@RequestBody User user){
         boolean result = userService.signUp(user);
-        if(result) return "redirect:/true";
-        else return "redirect:/false";
+        if(result) return new ResponseEntity<String>("Successfully sign-up.",HttpStatus.CREATED);
+        else return new ResponseEntity<String>("Bad request",HttpStatus.BAD_REQUEST);
     }
 
     @PostMapping("phone-auth")
-    public void phoneAuthentication(@RequestBody Confirm confirm) throws CoolsmsException {
+    public ResponseEntity<Confirm> phoneAuthentication(@RequestBody Confirm confirm) throws CoolsmsException {
         System.out.println(confirm);
         userService.sendAuthMessage(confirm.getPhoneNumber());
+        return new ResponseEntity<Confirm>(confirm,HttpStatus.OK);
     }
 
     @GetMapping("validate-phone")

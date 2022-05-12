@@ -24,10 +24,6 @@ public class Confirm {
     public Confirm() {
     }
 
-    public Confirm(Timestamp creationTime, String validationNumber, String phoneNumber){
-
-    }
-
     public Long getId() {
         return id;
     }

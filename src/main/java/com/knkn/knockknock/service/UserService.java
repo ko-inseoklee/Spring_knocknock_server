@@ -34,11 +34,9 @@ public class UserService {
     public boolean signUp(User user) {
         try{
             userRepository.save(user);
-
             return true;
         } catch (Exception e){
             e.printStackTrace();
-
             return  false;
         }
     }
@@ -51,12 +49,14 @@ public class UserService {
         return userRepository.findByNicknameEquals(nickname).isPresent();
     }
 
-    public void sendAuthMessage(String phoneNumber) throws CoolsmsException {
+    public boolean sendAuthMessage(String phoneNumber) throws CoolsmsException {
         try{
             String code = KnKnUtility.generateIdentifyNumber();
             confirmService.sendMessage(phoneNumber, code);
+            return true;
         } catch (Exception exception){
             exception.printStackTrace();
+            return false;
         }
     }
 

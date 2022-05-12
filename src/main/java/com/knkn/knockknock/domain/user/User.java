@@ -22,14 +22,14 @@ public class User {
     public User() {
     }
 
-    public User(String id, String pw, String age, String nickname, String sex, String job){
+    /* public User(String id, String pw, String age, String nickname, String sex, String job){
         this.id = id;
         this.password = pw;
         this.age = age;
         this.nickname = nickname;
         this.sex = sex;
         this.job = job;
-    }
+    }*/
 
 
     public String getId() {
